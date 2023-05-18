@@ -21,8 +21,30 @@ Check Table Data
     table column should contain    id:dataTable    4    ${A}[cb_options]
     table column should contain    id:dataTable    5    ${A}[radio_id]
 
-#    FOR    ?    IN    ?
-#        table column should contain    id:dataTable    ?    ${A}[?]
-#    END
+Fill Form With Positive Emails
+    [Arguments]    ${A}    ${EMAILS}
+    FOR    ${email}    IN    @{EMAILS}
+        input text    id:dataEmail    ${email}
+        input text    id:dataName    ${A}[name]
+        select from list by label    id:dataGender    ${A}[dropdown_value]
+        select checkbox    ${A}[cb_option_1]
+        select checkbox    ${A}[cb_option_2]
+        select radio button    radioGroup    ${A}[radio_id]
+        click button    id:dataSend
+        click button    xpath:/html/body/div[3]/div/div/div[2]/button
+        table column should contain    id:dataTable    1    ${email}
+    END
 
+Fill Form With Nagative Emails
+    [Arguments]    ${A}    ${EMAILS}
+    FOR    ${email}    IN    @{EMAILS}
+        input text    id:dataEmail    ${email}
+        input text    id:dataName    ${A}[name]
+        select from list by label    id:dataGender    ${A}[dropdown_value]
+        select checkbox    ${A}[cb_option_1]
+        select checkbox    ${A}[cb_option_2]
+        select radio button    radioGroup    ${A}[radio_id]
+        click button    id:dataSend
+        element should be visible    emailFormatError
+    END
 

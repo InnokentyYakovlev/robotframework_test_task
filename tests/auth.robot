@@ -4,6 +4,7 @@ Resource    ../resources/common.resource
 Resource    ../resources/auth.resource
 Variables   ../data/common-data.py
 Variables   ../data/auth-data.py
+Variables   ../data/emails.py
 
 *** Test Cases ***
 Auth With Valid Data
@@ -27,9 +28,9 @@ Auth With Invalid Data
 Positive Auth Email Validation Check
     [Setup]    Open Browser And Maximaze Window   ${url}    ${browser}
     [Teardown]    close browser
-    Auth With Positive Emails    ${positive_email_auth_data}    ${valid_auth_data}
+    Auth With Positive Emails    ${positive_email_data}    ${valid_auth_data}
 
 Negative Auth Email Validation Check
     [Setup]    Open Browser And Maximaze Window   ${url}    ${browser}
     [Teardown]    close browser
-    Auth With Negative Emails    ${negative_email_auth_data}    ${valid_auth_data}
+    Auth With Negative Emails    ${negative_email_data}    ${valid_auth_data}

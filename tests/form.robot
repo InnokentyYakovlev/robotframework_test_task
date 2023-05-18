@@ -15,4 +15,10 @@ Add Row With Valid Data
     Check Table Data    ${check_form_data_list_valid}
     [Teardown]    close browser
 
+Check Email Validation For From
+    [Setup]    Open Browser And Maximaze Window   ${url}    ${browser}
+    Authorization   ${valid_auth_data}
+    Fill Form With Positive Emails    ${fill_form_data_list_valid}    ${positive_email_data}
+    Fill Form With Nagative Emails    ${fill_form_data_list_valid}    ${negative_email_data}
+
 
