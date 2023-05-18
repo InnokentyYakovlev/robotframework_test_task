@@ -1,8 +1,5 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    RequestsLibrary
-Library    Collections
-Library    RPA.JSON
 Resource    ../resources/common.resource
 Resource    ../resources/form.resource
 Resource    ../resources/auth.resource
@@ -18,7 +15,4 @@ Add Row With Valid Data
     Check Table Data    ${check_form_data_list_valid}
     [Teardown]    close browser
 
-#Add 10 Rows With Valid Data
-#    [Setup]    Open Browser And Maximaze Window   ${url}    ${browser}
-#    [Teardown]    close browser
-#    Authorization   ${valid_auth_data}
+

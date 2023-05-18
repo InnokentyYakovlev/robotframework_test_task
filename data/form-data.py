@@ -1,5 +1,3 @@
-import json
-
 fill_form_data_list_valid = {'email': 'test@protei.ru',
                              'name': 'Инга',
                              'dropdown_value': 'Женский',

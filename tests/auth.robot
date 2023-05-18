@@ -15,11 +15,21 @@ Auth With Valid Data
 Auth With Invalid Data
     [Setup]    Open Browser And Maximaze Window   ${url}    ${browser}
     [Teardown]    close browser
-    1 Invalid Email and Valid Password    ${invalid_auth_data1}
-    2 Valid Email and Invalid Password    ${invalid_auth_data2}
-    3 Invalid Email and Invalid Password    ${invalid_auth_data3}
-    4 Valid Email and No Password    ${invalid_auth_data4}
-    7 Valid Email In Uppercase and Valid Password    ${invalid_auth_data7}
-    8 Valid Email In Mixed Case and Valid Password    ${invalid_auth_data8}
-    9 Valid Email and Valid Password In Uppercase    ${invalid_auth_data9}
-    10 Valid Email and Valid Password In Mixed Case    ${invalid_auth_data10}
+    Invalid Email and Valid Password    ${invalid_auth_data1}
+    Valid Email and Invalid Password    ${invalid_auth_data2}
+    Invalid Email and Invalid Password    ${invalid_auth_data3}
+    Valid Email and No Password    ${invalid_auth_data4}
+    Valid Email In Uppercase and Valid Password    ${invalid_auth_data7}
+    Valid Email In Mixed Case and Valid Password    ${invalid_auth_data8}
+    Valid Email and Valid Password In Uppercase    ${invalid_auth_data9}
+    Valid Email and Valid Password In Mixed Case    ${invalid_auth_data10}
+
+Positive Auth Email Validation Check
+    [Setup]    Open Browser And Maximaze Window   ${url}    ${browser}
+    [Teardown]    close browser
+    Auth With Positive Emails    ${positive_email_auth_data}    ${valid_auth_data}
+
+Negative Auth Email Validation Check
+    [Setup]    Open Browser And Maximaze Window   ${url}    ${browser}
+    [Teardown]    close browser
+    Auth With Negative Emails    ${negative_email_auth_data}    ${valid_auth_data}
